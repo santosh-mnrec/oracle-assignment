@@ -1,0 +1,26 @@
+<form>
+  <div class="form-group">
+    <input
+      type="text"
+      [(ngModel)]="newTask.title"
+      class="form-control"
+      name="title"
+      placeholder="Description"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="date"
+  
+     [(ngModel)]="newTask.date"
+      class="form-control"
+      name="date"
+      placeholder="Date"
+    />
+  </div>
+
+  <button type="button" (click)="addTask()" class="btn btn-primary">
+    Save
+  </button>
+</form>
+<div></div>

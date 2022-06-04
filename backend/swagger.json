@@ -1,0 +1,109 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Oracle Assignment",
+    "description": "Oracle Task List Api",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "tasks",
+      "description": "API for tasks"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/tasks": {
+      "post": {
+        "tags": [
+          "Task"
+        ],
+        "description": "Create new task in system",
+        "parameters": [
+          {
+            "name": "task",
+            "in": "body",
+            "description": "task that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Task"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New task is created"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "/"
+        ],
+        "summary": "Get all tasks in system",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of task that we want to find",
+          "type": "integer"
+        }
+      ],
+      "delete": {
+        "summary": "Delete task with given ID",
+        "tags": [
+          "tasks"
+        ],
+        "responses": {
+          "200": {
+            "description": "Task is deleted"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Task": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "format": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completed": {
+          "type": "boolean",
+          "required": false
+        }
+      }
+    }
+  }
+}
