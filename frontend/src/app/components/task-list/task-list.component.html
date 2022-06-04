@@ -1,9 +1,12 @@
-<ul class="list-group" *ngFor="let x of items; let index = index">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <span>{{ x.title }} </span>
-    <br />
-    <span>{{ x.date | date }}</span>
 
-    <input type="checkbox" />
+  <ul class="list-group" *ngFor="let x of items; let index = index">
+  <li class="list-group-item">
+   
+    <div class="col-md-6">{{x.title}} <span>{{x.date}}</span> </div>
+   
+    <div class="col-md-2"> 
+      <input type="checkbox">
+    </div>
   </li>
+  
 </ul>
