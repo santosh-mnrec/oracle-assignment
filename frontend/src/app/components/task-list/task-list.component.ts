@@ -13,6 +13,7 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit() {
     this.taskService.getTasks().subscribe(data=>{
+      console.log(data);
       this.items=data;
     });
   }
